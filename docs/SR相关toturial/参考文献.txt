@@ -1,0 +1,14 @@
+1. Rabiner L R. A tutorial on hidden Markov models and selected applications in speech recognition. Proceedings of the IEEE, 1989, 77(2): 257-286.
+入门必读。深入浅出地介绍了基于HMM的语音识别的原理，不注重公式的细节推导而是着重阐述公式背后的物理意义。
+
+2. Bilmes J A. A gentle tutorial of the EM algorithm and its application to parameter estimation for Gaussian mixture and hidden Markov models. International Computer Science Institute, 1998, 4(510): 126.
+详细介绍了用E-M算法训练HMM参数的推导过程，首先讲E-M的基本原理，然后讲解如何应用到GMM的训练，最后讲解如何应用到HMM的训练。
+
+3. Young S, Evermann G, Gales M, et al. The HTK book (v3.4). Cambridge University, 2006.
+HTK Book，开源工具包HTK的文档。虽然现在HTK已经不是最流行的了，但仍然强烈推荐按照书里的第二章流程做一遍，你可以搭建出一个简单的数字串识别系统。
+
+4. Graves A. Supervised Sequence Labelling with Recurrent Neural Networks. Springer Berlin Heidelberg, 2012: 15-35.
+基于神经网络的语音识别的入门必读。从神经网络的基本结构、BP算法等介绍到 LSTM、CTC。
+
+5. 俞栋, 邓力. 解析深度学习——语音识别实践, 电子工业出版社, 2016.
+高质量的中文资料非常稀有，推荐买一本。最早把深度学习技术应用于语音识别就是这本书的作者。
