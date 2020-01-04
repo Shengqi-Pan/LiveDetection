@@ -1,20 +1,19 @@
-%新建串口对象
-s1=serial('COM5','BaudRate',115200,'parity','none','databits',8,'stopbits',1); 
+%名 称：Matlab串口-Lab1
+%描 述：串口读，并写入txt文件中
 
-%尝试代开串口
-try
-  fopen(s1);  %打开串口对象
-catch err
-  fclose(instrfind);  %关闭被占用的串口
-  error('请确认选择了正确的串口');  %输出错误提示
-end
-while 1
-%     a = fscanf(s1,'%d');  %读取数据
-%     a = fread(s1);
-    if ~isempty(a)
-        break;
-    end
-end
-fclose(s1);  %关闭串口
-delete(s1);
-clear s1;
+s=serial('com5');
+s.BytesAvailableFcnMode='byte';  % 串口设置
+s.InputBufferSize=4096;
+s.OutputBufferSize=1024;
+s.BytesAvailableFcnCount=100;
+set(s,'BaudRate',115200,'Parity','none','DataBits',8,'StopBits',1);  %波特率为115200bp，8位数据，无校验位
+fopen(s);                  %打开串口
+out=fread(s,4,'uint8');   %一次读出10个字符  
+fprintf('%2c',out);        %一个字符占三位输出,%c字符，%d整型
+ 
+fid=fopen('serial_data.txt','w+'); % 'a+'读写方式打开，将文件指针指向文件末尾。如果文件不存在则尝试创建之
+fprintf(fid,'%2c',out);            % 写入文件中        
+fclose(fid);
+ 
+fclose(s);
+delete(s);

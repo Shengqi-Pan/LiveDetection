@@ -1,3 +1,4 @@
+%½øĞĞÂ¼Òô
 clear;clc;close all;
 recObj = audiorecorder;
 disp('Start speaking.')

@@ -1,3 +1,4 @@
+%ÇĞ³ı²¿·ÖÉùÒô
 clear;clc;close all;
 [y, fs] = audioread('..\data\test.mp3');
 z = (y(:,1) + y(:,2))/2;

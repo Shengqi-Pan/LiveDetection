@@ -1,4 +1,0 @@
-clear;clc;close all;
-[y, fs] = audioread('..\data\test.mp3');
-y(find(y<0.005y>-0.005)) = 0;
-sound(y,fs)           % ªÿ∑≈”Ô“Ù–≈∫≈
