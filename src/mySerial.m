@@ -1,28 +1,28 @@
-%±¾º¯ÊýÓÃÓÚ¶Á´®¿ÚÊý¾Ý
+%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 classdef mySerial
     properties
-        s % ´®¿Ú
-        out % ¶Áµ½µÄÊý×ªÎª¸ßµÍÊ®½øÖÆ
-        result % ×îÖÕÊä³öµÄÓÐÐ§Ê®½øÖÆ
-        acc_signal = [] % ½«ÏÈºó¶Áµ½µÄresultÒÔÏòÁ¿±£´æ
+        s % ï¿½ï¿½ï¿½ï¿½
+        out % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªÎªï¿½ßµï¿½Ê®ï¿½ï¿½ï¿½ï¿½
+        result % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Ê®ï¿½ï¿½ï¿½ï¿½
+        acc_signal = [] % ï¿½ï¿½ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½resultï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     end
     methods
-        function this = init(this)
-            this.s = serial('com4');
-            this.s.BytesAvailableFcnMode = 'byte';  % ´®¿ÚÉèÖÃ
+        function this = init(this,com)
+            this.s = serial(com);
+            this.s.BytesAvailableFcnMode = 'byte';  % ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             this.s.InputBufferSize = 4096;
             this.s.OutputBufferSize = 1000;
             this.s.BytesAvailableFcnCount = 100;
-            set(this.s,'BaudRate',115200,'Parity','none','DataBits',8,'StopBits',1);  %²¨ÌØÂÊÎª115200bp£¬8Î»Êý¾Ý£¬ÎÞÐ£ÑéÎ»
-            fopen(this.s);                  %´ò¿ª´®¿Ú
+            set(this.s,'BaudRate',115200,'Parity','none','DataBits',8,'StopBits',1);  %ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª115200bpï¿½ï¿½8Î»ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Ð£ï¿½ï¿½Î»
+            fopen(this.s);                  %ï¿½ò¿ª´ï¿½ï¿½ï¿½
         end
         function this = read(this)
-            this.out = fread(this.s,2,'uint8');   %Ò»´Î¶Á³ö10¸ö×Ö·û
-            this.result = this.out(1)*256+this.out(2);     %×ª»»ÎªÒ»¸öÊ®½øÖÆÊý
-            fprintf('%2d',this.result);        %Êä³ö½á¹û
+            this.out = fread(this.s,2,'uint8');   %Ò»ï¿½Î¶ï¿½ï¿½ï¿½10ï¿½ï¿½ï¿½Ö·ï¿½
+            this.result = this.out(1)*256+this.out(2);     %×ªï¿½ï¿½ÎªÒ»ï¿½ï¿½Ê®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            fprintf('%2d',this.result);        %ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             this.acc_signal = [this.acc_signal, this.result];
-            % fid=fopen('serial_data.txt','w+'); % 'a+'¶ÁÐ´·½Ê½´ò¿ª£¬½«ÎÄ¼þÖ¸ÕëÖ¸ÏòÎÄ¼þÄ©Î²¡£Èç¹ûÎÄ¼þ²»´æÔÚÔò³¢ÊÔ´´½¨Ö®
-            % fprintf(fid,'%2d',this.result);            % Ð´ÈëÎÄ¼þÖÐ        
+            % fid=fopen('serial_data.txt','w+'); % 'a+'ï¿½ï¿½Ð´ï¿½ï¿½Ê½ï¿½ò¿ª£ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ö¸ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½Ä©Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Ö®
+            % fprintf(fid,'%2d',this.result);            % Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½        
             % fclose(fid);
         end     
         function this = save(this)
