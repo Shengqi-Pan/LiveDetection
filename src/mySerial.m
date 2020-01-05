@@ -8,10 +8,10 @@ classdef mySerial
     end
     methods
         function this = init(this)
-            this.s = serial('com7');
+            this.s = serial('com4');
             this.s.BytesAvailableFcnMode = 'byte';  % 串口设置
             this.s.InputBufferSize = 4096;
-            this.s.OutputBufferSize = 1024;
+            this.s.OutputBufferSize = 1000;
             this.s.BytesAvailableFcnCount = 100;
             set(this.s,'BaudRate',115200,'Parity','none','DataBits',8,'StopBits',1);  %波特率为115200bp，8位数据，无校验位
             fopen(this.s);                  %打开串口
