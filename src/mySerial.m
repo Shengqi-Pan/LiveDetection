@@ -7,8 +7,8 @@ classdef mySerial
         acc_signal = [] % 将先后读到的result以向量保存
     end
     methods
-        function this = init(this)
-            this.s = serial('com7');
+        function this = init(this,com)
+            this.s = serial(com);
             this.s.BytesAvailableFcnMode = 'byte';  % 串口设置
             this.s.InputBufferSize = 4096;
             this.s.OutputBufferSize = 1024;
