@@ -1,4 +1,4 @@
-%锟斤拷锟斤拷锟借定锟斤拷时锟斤拷锟斤拷锟叫诧拷锟斤拷
+%用于设定定时器进行采样
 % s = mySerial;
 % s = s.init('com5');
 t=timer('TimerFcn','s = s.read();','Period',0.001,'ExecutionMode','fixedSpacing','TasksToExecute',1000);
