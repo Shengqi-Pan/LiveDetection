@@ -2,7 +2,7 @@
 R = audiorecorder(8000, 16 ,1);
 record(R);
 s = mySerial;
-s = s.init('com5');
+s = s.init('com7');
 % t=timer('TimerFcn','s = s.read();','Period',0.001,'ExecutionMode','fixedSpacing','TasksToExecute',5000);
 % start(t)
 % fread(s.s, s.s.BytesAvailable);
